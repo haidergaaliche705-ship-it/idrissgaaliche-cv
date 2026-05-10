@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Idriss Gaaliche — Central Midfielder</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #080a0c;
+    --surface: #0f1114;
+    --surface2: #161a1e;
+    --surface3: #1e2328;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.12);
+    --accent: #c8f135;
+    --accent-dim: rgba(200,241,53,0.12);
+    --accent-dim2: rgba(200,241,53,0.06);
+    --text: #f0f0ec;
+    --muted: #7a8090;
+    --muted2: #4a5060;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── UTILITY ── */
+  .container { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+  .mono { font-family: 'DM Mono', monospace; }
+  .label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .divider { height: 1px; background: var(--border); margin: 0; }
+
+  /* ── TOP BAR ── */
+  .topbar {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 0;
+    background: var(--black);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .topbar-id {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+  .topbar-id span {
+    color: var(--accent);
+    margin-right: 8px;
+  }
+  .topbar-pos {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted2);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 60px 0 50px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'IG';
+    position: absolute;
+    right: -10px;
+    top: -20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 240px;
+    color: rgba(255,255,255,0.015);
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 12vw, 78px);
+    line-height: 0.92;
+    letter-spacing: 0.02em;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .hero-name .last {
+    color: var(--accent);
+  }
+  .hero-position {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  .hero-tagline {
+    font-size: 15px;
+    font-weight: 300;
+    color: rgba(240,240,236,0.65);
+    max-width: 420px;
+    line-height: 1.65;
+    margin-bottom: 32px;
+    border-left: 2px solid var(--accent);
+    padding-left: 14px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--accent);
+    color: #080a0c;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 13px 24px;
+    border: none;
+    cursor: pointer;
+  }
+  .cta-btn:hover { background: #d4f54a; }
+  .cta-btn svg { width: 14px; height: 14px; }
+
+  /* ── SECTIONS ── */
+  section { padding: 48px 0; border-bottom: 1px solid var(--border); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: var(--text);
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── PROFILE ── */
+  .profile-bio {
+    font-size: 15px;
+    line-height: 1.75;
+    color: rgba(240,240,236,0.75);
+    margin-bottom: 28px;
+  }
+  .strengths-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .strengths-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .strength-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 11px 14px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text);
+  }
+  .strength-item::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* ── PLAYER INFO ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .info-cell {
+    background: var(--surface);
+    padding: 16px 18px;
+  }
+  .info-cell .label { margin-bottom: 5px; display: block; }
+  .info-cell .value {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+  .info-cell .value.accent { color: var(--accent); }
+
+  /* ── STATS ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+  .stat-block {
+    background: var(--surface);
+    padding: 22px 16px;
+    text-align: center;
+  }
+  .stat-block .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px;
+    line-height: 1;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+  }
+  .stat-block .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .stat-note {
+    margin-top: 12px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted2);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── CAREER ── */
+  .career-list { display: flex; flex-direction: column; gap: 0; }
+  .career-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    margin-bottom: -1px;
+    background: var(--surface);
+  }
+  .career-item:hover { background: var(--surface2); }
+  .career-years {
+    padding: 16px 14px;
+    border-right: 1px solid var(--border);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+  }
+  .career-detail { padding: 16px 18px; }
+  .career-club {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 3px;
+  }
+  .career-meta {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .career-flag {
+    display: inline-block;
+    margin-right: 6px;
+  }
+  .career-badge {
+    display: inline-block;
+    margin-top: 5px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(200,241,53,0.25);
+    padding: 2px 8px;
+  }
+
+  /* ── CONTACT ── */
+  .contact-intro {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    line-height: 1.65;
+  }
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .form-group { margin-bottom: 14px; }
+  .form-group label {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: var(--surface2);
+    border: 1px solid var(--border2);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    padding: 11px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+    resize: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: rgba(200,241,53,0.4);
+  }
+  .form-group textarea { height: 90px; }
+  .form-submit {
+    width: 100%;
+    background: var(--accent);
+    color: #080a0c;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    padding: 14px;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  .form-submit:hover { background: #d4f54a; }
+  .contact-details { display: flex; flex-direction: column; gap: 12px; }
+  .contact-detail-item {
+    padding: 14px 16px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+  }
+  .contact-detail-item .label { margin-bottom: 4px; display: block; }
+  .contact-detail-item .val {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 400;
+  }
+  .contact-detail-item .val a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .contact-detail-item .val a:hover { text-decoration: underline; }
+  .success-bar {
+    display: none;
+    background: var(--accent-dim);
+    border: 1px solid rgba(200,241,53,0.3);
+    color: var(--accent);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    padding: 12px 16px;
+    margin-top: 12px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 28px 0;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted2);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 540px) {
+    .hero { padding: 44px 0 40px; }
+    .hero::before { font-size: 160px; }
+    .strengths-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .contact-layout { grid-template-columns: 1fr; }
+    .info-grid { grid-template-columns: 1fr; }
+    .career-item { grid-template-columns: 90px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-id"><span>▸</span>SCOUTING PROFILE — 2026</div>
+      <div class="topbar-pos">CM · 6/8 · TUN/ITA</div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <div class="dot"></div>
+      <span class="label">Central Midfielder · Available for trials</span>
+    </div>
+    <h1 class="hero-name">
+      Idriss<br><span class="last">Gaaliche</span>
+    </h1>
+    <div class="hero-position">Position: Central Midfielder (6 / 8)</div>
+    <p class="hero-tagline">
+      Hybrid midfielder combining defensive screening, press resistance, ball progression, and tempo control.
+    </p>
+    <a href="https://www.instagram.com/idrissg.off/" target="_blank" class="cta-btn">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M2 8h12M9 3l5 5-5 5"/>
+      </svg>
+      Contact for trials / recruitment
+    </a>
+  </div>
+</div>
+
+<!-- PLAYER PROFILE -->
+<section id="profile">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">Player Profile</span>
+      <div class="section-line"></div>
+    </div>
+    <p class="profile-bio">
+      20-year-old Tunisian-Italian midfielder playing between the 6 and 8 roles. Calm on the ball with a strong tactical approach, Idriss combines defensive work rate, ball progression, and composure under pressure.
+      <br><br>
+      Having developed through different football cultures, Idriss brings a diverse understanding of the game. After spending 7 years in Tunisian football, his exposure to the tactical discipline of Italian football and the fast, technical environment of Paris and the Île-de-France region has further developed his vision, positional intelligence, and overall understanding of midfield play.
+    </p>
+    <div class="strengths-label">Key strengths</div>
+    <div class="strengths-grid">
+      <div class="strength-item">Press Resistance</div>
+      <div class="strength-item">Short & Medium Passing</div>
+      <div class="strength-item">Ball Recovery</div>
+      <div class="strength-item">Positional Discipline</div>
+      <div class="strength-item">Vertical Progression</div>
+      <div class="strength-item">Tempo Control</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAYER INFO -->
+<section id="info">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Player Info</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-cell">
+        <span class="label">Date of Birth</span>
+        <span class="value">23 / 03 / 2006</span>
+      </div>
+      <div class="info-cell">
+        <span class="label">Age</span>
+        <span class="value accent">20 years old</span>
+      </div>
+      <div class="info-cell">
+        <span class="label">Nationality</span>
+        <span class="value">🇹🇳 Tunisian &nbsp;/&nbsp; 🇮🇹 Italian</span>
+      </div>
+      <div class="info-cell">
+        <span class="label">Height</span>
+        <span class="value">1.82 m</span>
+      </div>
+      <div class="info-cell">
+        <span class="label">Strong Foot</span>
+        <span class="value">Right</span>
+      </div>
+      <div class="info-cell">
+        <span class="label">Current Club</span>
+        <span class="value">Paris 13 Atletico U20</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Stats — 2024 / 25</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="stats-row">
+      <div class="stat-block">
+        <span class="num">17</span>
+        <span class="stat-label">Matches</span>
+      </div>
+      <div class="stat-block">
+        <span class="num">4</span>
+        <span class="stat-label">Goals</span>
+      </div>
+      <div class="stat-block">
+        <span class="num">4</span>
+        <span class="stat-label">Assists</span>
+      </div>
+      <div class="stat-block">
+        <span class="num">1275</span>
+        <span class="stat-label">Minutes</span>
+      </div>
+    </div>
+    <p class="stat-note mono">* Minutes figure is a minimum — actual total may be higher.</p>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Career</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="career-list">
+
+      <div class="career-item">
+        <div class="career-years">2016–2017</div>
+        <div class="career-detail">
+          <div class="career-club"><span class="career-flag">🇮🇹</span>Palermo</div>
+          <div class="career-meta">Italy — Youth Academy</div>
+        </div>
+      </div>
+
+      <div class="career-item">
+        <div class="career-years">2017–2024</div>
+        <div class="career-detail">
+          <div class="career-club"><span class="career-flag">🇹🇳</span>US Monastir</div>
+          <div class="career-meta">Tunisia — Academy U10 → U20 + Reserve Team</div>
+          <span class="career-badge">7 seasons</span>
+        </div>
+      </div>
+
+      <div class="career-item">
+        <div class="career-years">2024–2025</div>
+        <div class="career-detail">
+          <div class="career-club"><span class="career-flag">🇫🇷</span>Ivry-sur-Seine</div>
+          <div class="career-meta">France — Training Period</div>
+        </div>
+      </div>
+
+      <div class="career-item" style="border-left: 2px solid var(--accent);">
+        <div class="career-years">2024–<span style="color:var(--accent)">Now</span></div>
+        <div class="career-detail">
+          <div class="career-club"><span class="career-flag">🇫🇷</span>Paris 13 Atletico</div>
+          <div class="career-meta">France — U20 · Active</div>
+          <span class="career-badge">Current</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Recruitment & Trial Contact</span>
+      <div class="section-line"></div>
+    </div>
+    <p class="contact-intro">
+      Available for trials, recruitment opportunities, scouting reports, and club inquiries.
+    </p>
+    <div class="contact-details">
+      <div class="contact-detail-item">
+        <span class="label">Email</span>
+        <span class="val"><a href="mailto:idrissgaaliche.player@gmail.com">idrissgaaliche.player@gmail.com</a></span>
+      </div>
+      <div class="contact-detail-item">
+        <span class="label">Phone</span>
+        <span class="val">+33 XX XX XX XX</span>
+      </div>
+      <div class="contact-detail-item">
+        <span class="label">Instagram</span>
+        <span class="val"><a href="https://instagram.com/idrissg.off" target="_blank">@idrissg.off</a></span>
+      </div>
+      <div class="contact-detail-item" style="border-left: 2px solid var(--accent);">
+        <span class="label">Status</span>
+        <span class="val" style="color:var(--accent);">Available for trials — Season 2026/27</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    IDRISS GAALICHE &nbsp;·&nbsp; CENTRAL MIDFIELDER &nbsp;·&nbsp; PROFILE 2026
+  </div>
+</footer>
+
+<script>
+function handleSubmit() {
+  const name = document.getElementById('c-name').value.trim();
+  const club = document.getElementById('c-club').value.trim();
+  const email = document.getElementById('c-email').value.trim();
+  const msg = document.getElementById('c-msg').value.trim();
+  if (!name || !email || !msg) {
+    alert('Please fill in Name, Email, and Message.');
+    return;
+  }
+  document.getElementById('c-name').value = '';
+  document.getElementById('c-club').value = '';
+  document.getElementById('c-email').value = '';
+  document.getElementById('c-msg').value = '';
+  document.getElementById('success-bar').style.display = 'block';
+}
+</script>
+</body>
+</html>
